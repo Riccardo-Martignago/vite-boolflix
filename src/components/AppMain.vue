@@ -1,5 +1,6 @@
 <script>
 import MainSearch from './MainSearch.vue';
+import MainFilms from './MainFilms.vue';
 import axios from 'axios';
 export default {
     data() {
@@ -8,13 +9,14 @@ export default {
         }
     },
     components:{
-        MainSearch
+        MainSearch,
+        MainFilms
     },
     methods:{
         getMovie(movieName){
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=6bb997fa15d25cbe7941a11291a8a501&query=' + 'ciao', {
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=6bb997fa15d25cbe7941a11291a8a501&query=' + 'name', {
                 params: {
-                    Name: movieName
+                    name: movieName
                     }
                 })
                 .then((response) => {
@@ -39,6 +41,7 @@ export default {
     <main>
         <h1>MAIN</h1>
         <MainSearch />
+        <MainFilms :filmList="filmList"/>
     </main>
 </template>
 
