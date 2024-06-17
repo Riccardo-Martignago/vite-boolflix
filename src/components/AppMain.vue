@@ -1,17 +1,20 @@
 <script>
 import MainSearch from './MainSearch.vue';
 import MainFilms from './MainFilms.vue';
+import MainSeries from './MainSeries.vue';
 import axios from 'axios';
 import { CalculationInterpolation } from 'sass';
 export default {
     data() {
         return {
-            filmList: []
+            filmList: [],
+            seriesList: []
         }
     },
     components:{
         MainSearch,
-        MainFilms
+        MainFilms,
+        MainSeries
     },
     methods:{
         getMovie(movieName){
@@ -31,12 +34,31 @@ export default {
                     // always executed
             }); 
         },
-        testoFilm(testo) {
-            this.getMovie(testo)
+        getSeries(serieName){
+            axios.get('https://api.themoviedb.org/3/search/tv?api_key=6bb997fa15d25cbe7941a11291a8a501&query=' + serieName, {
+                params: {
+                    name: serieName
+                    }
+                })
+                .then((response) => {
+                    this.seriesList = response.data.results
+                    console.log(response.data.results);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+            }); 
+        },
+        testoRicerca(testo) {
+            this.getMovie(testo);
+            this.getSeries(testo)
         }
     },
     created(){
         this.getMovie();
+        this.getSeries();
     }
 }
 </script>
@@ -44,8 +66,9 @@ export default {
 <template>
     <main>
         <h1>MAIN</h1>
-        <MainSearch @filmSearch="testoFilm"/>
+        <MainSearch @Searched="testoRicerca"/>
         <MainFilms :filmList="filmList"/>
+        <MainSeries :seriesList="seriesList"/>
     </main>
 </template>
 

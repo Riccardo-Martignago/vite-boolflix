@@ -5,7 +5,7 @@ export default {
         }
     },  
     props:{
-        filmList:{
+        seriesList:{
         type: Array,
         required: true
         }
@@ -15,14 +15,14 @@ export default {
 
 <template>
     <section>
-        <h2>FILM</h2>
+        <h2>SERIE TV</h2>
         <ul>
-            <li v-for="films in filmList" :key="films.id">
-                <h2>{{ films.title }}</h2>
-                <p>{{ films.original_title }}</p>
-                <p>{{ films.vote_average }}</p>
-                <p>{{ films.original_language }}</p>
-                <span :class="'lang-icon lang-icon-' + (films.original_language)"></span>
+            <li v-for="serie in seriesList" :key="serie.id">
+                <h2>{{ serie.name }}</h2>
+                <p>{{ serie.original_name }}</p>
+                <p>{{ serie.vote_average }}</p>
+                <p>{{ serie.original_language }}</p>
+                <span :class="'lang-icon lang-icon-' + (serie.original_language)"></span>
             </li>
         </ul>
     </section>
