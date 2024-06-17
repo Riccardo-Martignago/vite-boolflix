@@ -21,10 +21,7 @@ export default {
                 <p>{{ films.original_title }}</p>
                 <p>{{ films.vote_average }}</p>
                 <p>{{ films.original_language }}</p>
-                <span class="lang-icon lang-icon-en"></span>
-                <span class="lang-icon lang-icon-aqc"></span>
-                <span class="lang-icon lang-icon-cs"></span>
-                <span class="lang-icon lang-icon-de"></span>
+                <span :class="'lang-icon lang-icon-' + (films.original_language)"></span>
             </li>
         </ul>
     </section>
