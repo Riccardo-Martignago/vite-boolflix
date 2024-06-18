@@ -29,6 +29,9 @@ export default {
                 <p>{{ starRating(films.vote_average) }}</p>
                 <p>{{ films.original_language }}</p>
                 <span :class="'lang-icon lang-icon-' + (films.original_language)"></span>
+                <div v-for="n in (Math.ceil((films.vote_average / 10 )* 5))" :key="n">
+                    <font-awesome-icon :icon="['fas', 'star']" />
+                </div>
             </li>
         </ul>
     </section>

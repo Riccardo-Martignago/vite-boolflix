@@ -23,15 +23,14 @@ export default {
         <h2>SERIE TV</h2>
         <ul>
             <li v-for="serie in seriesList" :key="serie.id">
-                <img :src="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path" alt="">
+                <img :src="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path" :alt="serie.name">
                 <h2>{{ serie.name }}</h2>
                 <p>{{ serie.original_name }}</p>
-                <p>{{ starRating(films.vote_average) }}</p>
+                <p>{{ starRating(serie.vote_average) }}</p>
                 <p>{{ serie.original_language }}</p>
                 <span :class="'lang-icon lang-icon-' + (serie.original_language)"></span>
             </li>
         </ul>
-        <font-awesome-icon :icon="['fas', 'star']" />
     </section>
 </template>
 
