@@ -9,6 +9,11 @@ export default {
         type: Array,
         required: true
         }
+    },
+    methods:{
+        starRating(numb){
+            return Math.ceil((numb / 10)* 5);
+        }
     }
 }
 </script>
@@ -21,11 +26,12 @@ export default {
                 <img :src="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path" alt="">
                 <h2>{{ serie.name }}</h2>
                 <p>{{ serie.original_name }}</p>
-                <p>{{ serie.vote_average }}</p>
+                <p>{{ starRating(films.vote_average) }}</p>
                 <p>{{ serie.original_language }}</p>
                 <span :class="'lang-icon lang-icon-' + (serie.original_language)"></span>
             </li>
         </ul>
+        <font-awesome-icon :icon="['fas', 'star']" />
     </section>
 </template>
 

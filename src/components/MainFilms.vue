@@ -15,7 +15,6 @@ export default {
             return Math.ceil((numb / 10)* 5);
         }
     }
-
 }
 </script>
 

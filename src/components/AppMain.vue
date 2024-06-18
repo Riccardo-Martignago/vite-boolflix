@@ -3,7 +3,6 @@ import MainSearch from './MainSearch.vue';
 import MainFilms from './MainFilms.vue';
 import MainSeries from './MainSeries.vue';
 import axios from 'axios';
-import { CalculationInterpolation } from 'sass';
 export default {
     data() {
         return {
