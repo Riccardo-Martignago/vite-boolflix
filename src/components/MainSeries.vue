@@ -18,6 +18,7 @@ export default {
         <h2>SERIE TV</h2>
         <ul>
             <li v-for="serie in seriesList" :key="serie.id">
+                <img :src="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path" alt="">
                 <h2>{{ serie.name }}</h2>
                 <p>{{ serie.original_name }}</p>
                 <p>{{ serie.vote_average }}</p>
